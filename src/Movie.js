@@ -1,19 +1,17 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import './Movie.css'
 function Movie({id,rating,title,year,poster,summary}) {
-    // const imgs = medium_cover_image
     return (
-        <div>
+        <div className="movie">
             <img src={poster} alt={title} title={title} />
-            <div className="movie-title">{title}</div>
-            <div className="movie-year">{year}</div>
-            <div className="movie-rating">{rating}</div>
-            <div className="movie-summary">{summary}</div>
+            <div className="text-box">
+                <h3 className="movie-title">{title}</h3>
+                <h5 className="movie-year">{year}</h5>
+                <h5 className="movie-rating" style={{color:"red"}}>{rating}</h5>
+                <p className="movie-summary">{summary.slice(0,180)}...</p>
+            </div>
         </div>
     )
 }
-// Movie.propTypes = {
-//     rating: PropTypes.number.isRequired,
-// }
 
 export default Movie

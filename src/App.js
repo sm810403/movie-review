@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Movie from './Movie';
+import './App.css'
 class App extends React.Component {
   state = {
     isLoading: true,
@@ -15,18 +16,16 @@ class App extends React.Component {
     console.log('mount')
     this.getMovies();
   }
-  // componentDidUpdate(){
-  //   console.log('I updated')
-  // }
-  // componentWillUnmount(){
-  //   console.log('goodbye cruel world');
-  // }
   render(){
     console.log('I am rendering');
     const {isLoading, movies} = this.state;
     return(
-      <article>
-        {isLoading? (<div>loading...</div>): (<div>{movies.map(movie=>(
+      <article className='container'>
+        {isLoading? 
+        (<div className="loader">
+          <span className="loader__text">loading...</span>
+        </div>): 
+        (<div className="movies">{movies.map(movie=>(
           <Movie 
             key={movie.id} 
             rating={movie.rating} 
